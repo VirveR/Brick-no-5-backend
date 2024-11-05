@@ -23,15 +23,15 @@ const addPart = async (req, res) => {
     partId: req.body.partId,
     type: req.body.type,
     size: req.body.size,
-    yearFrom: req.body.yearFrom,
-    yearTo: req.body.yearTo,
+    yearFrom: parseInt(req.body.yearFrom),
+    yearTo: parseInt(req.body.yearTo),
     versions: []
   });
   try {
     const newPart = await part.save();
     res.status(201).json({newPart});
   } catch (error) {
-    return res.status(500).json({message: error.message});
+    return res.status(500).json({error: error.message});
   }
 };
 

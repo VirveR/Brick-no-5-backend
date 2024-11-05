@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const PartSchema = new Schema(
   {
-    number: {type: String, required: true},
+    partId: {type: String, required: true},
     type: {type: String, required: true},
     size: {type: String, required: true},
     yearFrom: {type: Number},
