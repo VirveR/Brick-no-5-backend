@@ -37,19 +37,47 @@ const addPart = async (req, res) => {
 
 const addVerToPart = async (req, res) => {
   const ver = {
+    versId: req.body.versId,
     year: req.body.year,
     logo: req.body.logo,
-    model: req.body.model,
+    pip: req.body.pip,
+    mold: req.body.mold,
     place: req.body.place,
     info: req.body.info,
-    cavity: req.body.cavity,
-    struc: req.body.struc
+    struc: req.body.struc,
+    out: req.body.out,
+    in: req.body.in,
+    bot: req.body.bot,
+    colors: req.body.colors
   };
   try {
     const updated = await Part.findOneAndUpdate({partId: req.params.id}, {$push: {versions: ver}}, {new: true});
     return res.status(200).json({updated});
   } catch (error) {
-    return res.status(500).json({message: error.message});
+    return res.status(500).json({error: error.message});
+  }
+};
+
+const editVerInPart = async (req, res) => {
+  const ver = {
+    versId: req.body.versId,
+    year: req.body.year,
+    logo: req.body.logo,
+    pip: req.body.pip,
+    mold: req.body.mold,
+    place: req.body.place,
+    info: req.body.info,
+    struc: req.body.struc,
+    out: req.body.out,
+    in: req.body.in,
+    bot: req.body.bot,
+    colors: req.body.colors
+  };
+  try {
+    const updated = await Part.findOneAndUpdate({partId: req.params.id, 'versions.versId': req.body.versId}, {$set: {'versions.$': ver}}, {new: true});
+    return res.status(200).json({updated});
+  } catch (error) {
+    return res.status(500).json({error: error.message});
   }
 };
 
@@ -71,4 +99,4 @@ const deletePart = async (req, res) => {
   }
 };
 
-module.exports = {getParts, getPartById, addPart, addVerToPart, removeVerFromPart, deletePart};
+module.exports = {getParts, getPartById, addPart, editVerInPart, addVerToPart, removeVerFromPart, deletePart};
