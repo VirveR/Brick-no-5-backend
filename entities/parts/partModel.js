@@ -11,19 +11,15 @@ const PartSchema = new Schema(
     versions: {
       type: Array,
       versId: {type: String},
-      year: {type: Number},
+      yearFrom: {type: Number},
+      yearTo: {type: Number},
       logo: {type: String},
       pip: {type: String},
       mold: {type: String},
       place: {type: String},
       info: {type: String},
-      struc: {type: String},
-      out: {type: String},
-      in: {type: String},
-      bot: {type: String},
-      colors: {
-        type: Array
-      }
+      struc: {type: Array},
+      colors: {type: Array}
     }
   }
 );

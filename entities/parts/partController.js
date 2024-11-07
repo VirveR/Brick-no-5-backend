@@ -36,18 +36,17 @@ const addPart = async (req, res) => {
 };
 
 const addVerToPart = async (req, res) => {
+  console.log(req.body);
   const ver = {
     versId: req.body.versId,
-    year: req.body.year,
+    yearFrom: parseInt(req.body.yearFrom),
+    yearTo: parseInt(req.body.yearTo),
     logo: req.body.logo,
     pip: req.body.pip,
     mold: req.body.mold,
     place: req.body.place,
     info: req.body.info,
     struc: req.body.struc,
-    out: req.body.out,
-    in: req.body.in,
-    bot: req.body.bot,
     colors: req.body.colors
   };
   try {
@@ -61,16 +60,14 @@ const addVerToPart = async (req, res) => {
 const editVerInPart = async (req, res) => {
   const ver = {
     versId: req.body.versId,
-    year: req.body.year,
+    yearFrom: parseInt(req.body.yearFrom),
+    yearTo: parseInt(req.body.yearTo),
     logo: req.body.logo,
     pip: req.body.pip,
     mold: req.body.mold,
     place: req.body.place,
     info: req.body.info,
     struc: req.body.struc,
-    out: req.body.out,
-    in: req.body.in,
-    bot: req.body.bot,
     colors: req.body.colors
   };
   try {
