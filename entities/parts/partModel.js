@@ -18,8 +18,7 @@ const PartSchema = new Schema(
       mold: {type: String},
       place: {type: String},
       info: {type: String},
-      struc: {type: Array},
-      colors: {type: Array}
+      struc: {type: Array}
     }
   }
 );

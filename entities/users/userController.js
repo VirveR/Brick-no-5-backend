@@ -58,14 +58,13 @@ const loginUser = async (req, res) => {
 
 const addCollToUser = async (req, res) => {
   const coll = {
-    id: req.body.id,
-    name: req.body.name
+    _id: req.body.id
   };
   try {
     const updated = await User.findByIdAndUpdate(req.params.id, {$push: {colls: coll}}, {new: true});
     return res.status(200).json({updated});
   } catch (error) {
-    return res.status(500).json({message: error.message});
+    return res.status(500).json({error: error.message});
   }
 };
 

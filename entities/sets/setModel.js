@@ -27,7 +27,6 @@ const SetSchema = new Schema(
     needs: {
       type: Array,
       partId: {type: String},
-      version: {type: String},
       color: {type: String},
       quant: {type: Number}
     }

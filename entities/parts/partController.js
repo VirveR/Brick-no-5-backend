@@ -46,8 +46,7 @@ const addVerToPart = async (req, res) => {
     mold: req.body.mold,
     place: req.body.place,
     info: req.body.info,
-    struc: req.body.struc,
-    colors: req.body.colors
+    struc: req.body.struc
   };
   try {
     const updated = await Part.findOneAndUpdate({partId: req.params.id}, {$push: {versions: ver}}, {new: true});
@@ -67,8 +66,7 @@ const editVerInPart = async (req, res) => {
     mold: req.body.mold,
     place: req.body.place,
     info: req.body.info,
-    struc: req.body.struc,
-    colors: req.body.colors
+    struc: req.body.struc
   };
   try {
     const updated = await Part.findOneAndUpdate({partId: req.params.id, 'versions.versId': req.body.versId}, {$set: {'versions.$': ver}}, {new: true});

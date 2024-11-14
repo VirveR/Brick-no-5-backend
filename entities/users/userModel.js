@@ -17,13 +17,7 @@ const UserSchema = new Schema(
     },
     colls: {
       type: Array,
-      name: {type: String},
-      sets: {
-        type: Array
-      },
-      parts: {
-        type: Array
-      }
+      id: {type: String}
     }
   }
 );

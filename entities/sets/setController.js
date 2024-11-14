@@ -38,7 +38,6 @@ const addSet = async (req, res) => {
 const addRowToSet = async (req, res) => {
   const row = {
     partId: req.body.partId,
-    version: req.body.version,
     color: req.body.color,
     quant: parseInt(req.body.quant)
   };

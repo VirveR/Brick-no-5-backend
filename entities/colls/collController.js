@@ -20,13 +20,15 @@ const getCollById = async (req, res) => {
 
 const addColl = async (req, res) => {
   const coll = new Coll({
+    name: req.body.name,
+    parts: [],
     sets: []
   });
   try {
     const newColl = await coll.save();
     res.status(201).json({newColl});
   } catch (error) {
-    return res.status(500).json({message: error.message});
+    return res.status(500).json({error: error.message});
   }
 };
 
