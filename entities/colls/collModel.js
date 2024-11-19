@@ -3,6 +3,9 @@ const Schema = mongoose.Schema;
 
 const CollSchema = new Schema(
   {
+    _id: {
+      type: mongoose.Types.ObjectId
+    },
     name: {
       type: String,
       required: [true, 'Name is missing']
